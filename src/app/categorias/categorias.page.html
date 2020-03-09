@@ -8,8 +8,8 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-list *ngFor ="let item of itens">
-    <ion-item >
+  <ion-list>
+    <ion-item  *ngFor ="let item of itens" (click)="openPage(item.path)">
    
         <ion-thumbnail>
             <img src="assets/icon/{{item.icon}}.png">
