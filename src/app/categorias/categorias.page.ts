@@ -20,7 +20,7 @@ import { AlertasService } from '../servicos/alertas.service';
 
   ngOnInit() {
     this.alerta.mostrarAlerta();
-    /*this.itens = [
+    this.itens = [
       {
         'id': 1,
         'nome':'Banco de Dados',
@@ -34,7 +34,7 @@ import { AlertasService } from '../servicos/alertas.service';
         'path':'camera'
       }
       
-    ]*/
+    ]
   }
 
   openPage(page:string){
