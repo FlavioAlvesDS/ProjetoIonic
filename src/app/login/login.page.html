@@ -1,23 +1,30 @@
-
-
-<ion-content class="home">
-
-
-  
-  <form class="login">
-    <ion-item>
-      <ion-label position="floating"></ion-label>
-      <ion-input type="text" name="login" placeholder="Login"><ion-icon name="person-outline"></ion-icon></ion-input>
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Flavio Pereira Alves</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <img src="assets/img/logo.png"  alt="logo"> 
+  <h3>Login</h3>
+  <form>
+    <ion-item class="input" >
+      <ion-label><ion-icon name="people-sharp"></ion-icon> Email</ion-label>
+      <ion-input type="text" name="email" [(ngModel)]="email"></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label position="floating"></ion-label>
-      <ion-input type="password" name="lock-closed-outline" placeholder="Senha"><ion-icon name="lock-closed-outline"></ion-icon></ion-input>
+    <ion-item class="input" fill="outline" >
+      
+      <ion-label><ion-icon name="key-sharp"></ion-icon> Senha</ion-label>
+      <ion-input type="password" name="password" [(ngModel)]="password" ></ion-input>
     </ion-item>
-    
-    <ion-button class="btnEntrar" type="submit" expand="block" color= "primary"  (click)="login()">ENTRAR</ion-button>
+
+    <ion-button  type="submit" (click)="MethodLogin()" block >Entrar</ion-button>
   </form>
 
-  <ion-button id="cad" expand="block" fill="outline">REGISTRAR</ion-button>
-   
+  <ion-button  block fill="outline"  color="secondary" (click)="register()">Registrar</ion-button>
+
+  <p>EMAIL : eve.holt@reqres.in</p>
+   <p>PASSWORD: cityslicka</p>
+
 </ion-content>
+

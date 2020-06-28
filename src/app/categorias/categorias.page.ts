@@ -1,43 +1,32 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { AlertasService } from '../servicos/alertas.service';
-
+import { UserService } from '../service/user.service';
 
 @Component({
   selector: 'app-categorias',
   templateUrl: './categorias.page.html',
   styleUrls: ['./categorias.page.scss'],
-  })
-  export class CategoriasPage implements OnInit {
+})
+export class CategoriasPage implements OnInit {
+  itens: any;
 
-  itens:object;
 
-  constructor(
-    private navCtrl: NavController,
-    private alerta: AlertasService,
-
-    ) { }
+  constructor(private UserService: UserService) { }
 
   ngOnInit() {
-    this.alerta.mostrarAlerta();
-    this.itens = [
-      {
-        'id': 1,
-        'nome':'Banco de Dados',
-        'icon':'base',
-        'path':'banco-de-dados'
-      },    
-      {
-        'id':2,
-        'nome':'camera',
-        'icon':'camera',
-        'path':'camera'
-      }
-      
-    ]
-  }
 
-  openPage(page:string){
-    this.navCtrl.navigateForward(`/${page}`)};
- 
+    // recebe dados provenientes da conexão de service
+    this.UserService.obterCategorias()
+      .then(response => {
+        // response.data recebe uma string Json e devemos converter em objeto
+        this.itens = JSON.parse(response.data, (key, value) => {
+          return value;
+        });
+        this.itens = this.itens.data; // obtem apenas o array data
+      },
+        error => {
+          console.log(error);
+        });
+  }
 }
+
+
